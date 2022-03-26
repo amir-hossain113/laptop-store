@@ -1,0 +1,16 @@
+.cart-product{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    padding: 0px 20px;
+}
+.cart-product img{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+.delete-btn{
+    font-size: 1.2rem;
+}

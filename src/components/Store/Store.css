@@ -1,10 +1,36 @@
 .store-container{
     display: grid;
-    grid-template-columns: 4fr, 2fr;
+    grid-template-columns: 4fr 1fr;
+    margin: 50px 0;
 }
 .product-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
-    margin: 50px 50px;
+    margin: 0px 50px;
+}
+.cart-container{
+    background-color:rgb(27, 240, 240);
+    text-align: center;
+    border-radius: 8px;
+}
+.btn{
+    width: 200px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.btn-one{
+    border: 2px solid green;
+}
+.btn-two{
+    border: 2px solid yellow;
+}
+.btn-one:hover{
+    background-color: green;
+    color: white;
+}
+.btn-two:hover{
+    background-color: yellow;
 }

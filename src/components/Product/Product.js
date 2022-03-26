@@ -3,7 +3,7 @@ import './Product.css';
 import {ImCart} from 'react-icons/im';
 
 const Product = (props) => {
-    const { name, img, price} = props.product;
+    const { name, img, price } = props.product;
 
     return (
         <div className="product">
@@ -12,7 +12,7 @@ const Product = (props) => {
                 <p>{name}</p>
                 <p>${price}</p>
             </div>
-            <button className="btn-cart">
+            <button onClick={() => props.handleCartBtn(props.product)} className="btn-cart">
                 <p>Add To Cart</p>
                 <ImCart className="cart"></ImCart>
             </button>
