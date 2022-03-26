@@ -7,6 +7,7 @@ const Store = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
+
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/amir-hossain113/laptop/main/data.json')
         .then(res => res.json())
@@ -16,7 +17,28 @@ const Store = () => {
 
     const handleCartBtn = (product) => {
         const newCart = [...cart, product];
-        setCart(newCart)
+        if(cart.length + 1 < 5)
+        {
+            setCart(newCart)
+        }
+        else{
+            alert("Sorry you can't select more than 4 items");
+        }
+    }
+
+    //handle randomly choose
+    const getRandomNumber = () => {
+        const randValue =  Math.floor(Math.random() * cart.length);
+        const randProduct = cart[randValue];
+        setCart([randProduct]);
+    }
+   
+
+
+    //handle choose again button
+    const handleChooseAgainBtn = () => {
+        const newCart = [];
+        setCart(newCart);
     }
 
     return (
@@ -31,15 +53,16 @@ const Store = () => {
                 }
             </div>
             <div className="cart-container">
-                <h2>Selected Products</h2>
+                <h2>Selected Product List</h2>
+                <h3>You can select only 4 items</h3>
                 <h3>Your Cart</h3>
                 {
                     cart.map(item => <Cart key={item.id} img={item.img} name={item.name}></Cart>)
                 }
                 <div>
-                    <button className="btn btn-one">Choose One</button>
+                    <button onClick={getRandomNumber} className="btn btn-one">Choose One</button>
                     <br />
-                    <button className="btn btn-two">Choose Again</button>
+                    <button onClick={handleChooseAgainBtn} className="btn btn-two">Choose Again</button>
                 </div>
             </div>
         </div>
